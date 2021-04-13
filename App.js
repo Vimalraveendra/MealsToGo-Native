@@ -1,22 +1,22 @@
-import {StatusBar as ExpoStatusBar} from 'expo-status-bar'
-import React from 'react';
-import { StyleSheet, Text, View,SafeAreaView,StatusBar,Platform} from 'react-native';
+import { StatusBar as ExpoStatusBar } from "expo-status-bar";
+import React from "react";
+import { StyleSheet, Text, View, SafeAreaView, StatusBar } from "react-native";
 
-
+//statusBar.currentHeight is only applying to android
+//because the statusBar has different height in different devices.
 export default function App() {
   return (
     <>
-    <SafeAreaView style={styles.container}> 
-      <View style={styles.green}>
-        <Text>Search</Text>
-      </View>
-      <View style={styles.blue}>
-        <Text>List</Text> 
-      </View>
-   
-    </SafeAreaView>
-    <ExpoStatusBar style='auto'/>
-    <StatusBar style="auto"/>
+      <SafeAreaView style={styles.container}>
+        <View style={styles.search}>
+          <Text>Search</Text>
+        </View>
+        <View style={styles.list}>
+          <Text>List</Text>
+        </View>
+      </SafeAreaView>
+      <ExpoStatusBar style="auto" />
+      <StatusBar style="auto" />
     </>
   );
 }
@@ -24,19 +24,16 @@ export default function App() {
 const styles = StyleSheet.create({
   container: {
     flex: 1,
-    backgroundColor: '#fff',
-    marginTop:StatusBar.currentHeight
+    backgroundColor: "#fff",
+    marginTop: StatusBar.currentHeight,
   },
-  green:{
-   backgroundColor:'green',
-
-   padding:10 
-  
+  search: {
+    backgroundColor: "green",
+    padding: 10,
   },
-  blue:{
-    flex:1,
-    backgroundColor:'red',
-  
-    padding:10 
-  }
+  list: {
+    flex: 1,
+    backgroundColor: "red",
+    padding: 10,
+  },
 });
