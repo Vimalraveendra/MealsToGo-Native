@@ -9,16 +9,17 @@ import styled from 'styled-components/native'
 // not from react-native library.by using parenthesis we 
 // can style the external components
 const RestaurantCard =styled(Card)`
-background-color:#fff;
+background-color:${props=>props.theme.colors.bg.primary};
 `;
 
 const RestaurantCardCover =styled(Card.Cover)`
- padding:20px;
- background-color:#fff;
+ padding:${props=>props.theme.space[3]};
+ background-color:${props=>props.theme.colors.bg.primary}
 `;
 const TitleText =styled(Text)`
-    font-size:15px;
-    padding:16px; 
+    font-family:${props=>props.theme.fonts.body}; 
+    font-size:${props=>props.theme.fontSizes.body};
+    padding:${props=>props.theme.space[3]}; 
     color:${props=>props.theme.colors.ui.error};
 `;
 
