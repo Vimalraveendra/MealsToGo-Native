@@ -1,5 +1,6 @@
 import styled from 'styled-components/native'
 
+
 const defaultTextStyles=(theme)=>`
 font-family: ${theme.fonts.body};
 font-weight: ${theme.fontWeights.regular};
@@ -45,7 +46,7 @@ const variants = {
 export const Text =styled.Text`
 ${({theme})=>defaultTextStyles(theme)}
 ${({variant,theme})=>variants[variant](theme)}
-`
+`;
 
 Text.defaultProps={
     variant:"body"

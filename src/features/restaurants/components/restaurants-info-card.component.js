@@ -1,60 +1,12 @@
-import React,{useContext} from 'react';
-import { Text,Image} from 'react-native'
+import React from 'react';
 import {  Card} from 'react-native-paper';
-import styled from 'styled-components/native'
 import { SvgXml } from 'react-native-svg';
 import star from '../../../../assets/star'
 import open from '../../../../assets/open'
+import {Text} from '../../../components/typography/text.component'
 
-import {Spacer} from '../../../components/spacer/spacer.component'
-
-
-// here  we do styled(Card ) because Card is a component 
-// that comes from different library react-native-paper
-// not from react-native library.by using parenthesis we 
-// can style the external components
-const RestaurantCard =styled(Card)`
-background-color:${props=>props.theme.colors.bg.primary};
-`;
-
-const RestaurantCardCover =styled(Card.Cover)`
- padding:${props=>props.theme.space[3]};
- background-color:${props=>props.theme.colors.bg.primary}
-`;
-const TitleText =styled(Text)`
-    font-family:${props=>props.theme.fonts.heading}; 
-    font-size:${props=>props.theme.fontSizes.body};
-    color:${props=>props.theme.colors.ui.primary};
-`;
-
-const Info =styled.View`
-  padding:${props=>props.theme.space[3]}; 
-`;
-
-const Address =styled.Text`
-   font-family:${props=>props.theme.fonts.body}; 
-   font-size:${props=>props.theme.fontSizes.caption};
-
-`
-const Section =styled.View`
-flex-direction:row;
-justify-content:space-between;
-align-items:center;
-
-`
-const Rating =styled.View`
-    flex-direction:row;
-    padding-top:${props=>props.theme.space[2]};
-    padding-bottom:${props=>props.theme.space[2]}
-`
-
-const SectionEnd=styled .View`
-  flex-direction:row;
-`;
-
-const Icon =styled.View`
-padding:0 16px
-`
+import {RestaurantCard,RestaurantCardCover,Info,Section,Rating,SectionEnd,Icon,Address,ImageIcon} from './restaurants-info-card.styles'
+// import {Spacer} from '../../../components/spacer/spacer.component'
 
 
 const RestaurantsInfoCard=({restaurant={}})=>{
@@ -77,7 +29,7 @@ return(
   <RestaurantCard elevation={5}>
     <RestaurantCardCover  key={name} source={{ uri:photos[0] }} />
      <Info>   
-      <TitleText>{name}</TitleText>
+      <Text variant='label'>{name}</Text>
       <Section>
       <Rating>
           {
@@ -89,7 +41,7 @@ return(
        <SectionEnd>
             {
               isClosedTemporarily && (
-                <Text variant ='label' style={{color:'red',fontSize:16}}>ClosedTemporarily</Text>
+                <Text variant ='error'  >CLOSEDTEMPORARILY</Text>
               )
             }
             <Icon>
@@ -97,7 +49,7 @@ return(
               isOpenNow&&<SvgXml width={20} height={20} xml={open} x/>
             }
             </Icon>
-            <Image style={{width:18,height:18}} source={{uri:icon}}/>
+            <ImageIcon source={{uri:icon}}/>
       </SectionEnd>
       </Section>
       <Address>{address}</Address> 
