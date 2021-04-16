@@ -1,10 +1,12 @@
 import React,{useContext} from 'react';
-import { Text,View,Image} from 'react-native'
+import { Text,Image} from 'react-native'
 import {  Card} from 'react-native-paper';
 import styled from 'styled-components/native'
 import { SvgXml } from 'react-native-svg';
 import star from '../../../../assets/star'
 import open from '../../../../assets/open'
+
+import {Spacer} from '../../../components/spacer/spacer.component'
 
 
 // here  we do styled(Card ) because Card is a component 
