@@ -36,6 +36,23 @@ function MapScreen() {
   );
 }
 
+const TAB_ICON = {
+  Restaurants:'ios-restaurant',
+  Map:'ios-map',
+  Settings:'ios-settings'
+}
+
+
+const createScreenOptions=({route})=>{
+  const iconName=TAB_ICON[route.name]
+  return{
+  tabBarIcon:({size,color})=>(
+     // You can return any component that you like here!
+   <Ionicons name={iconName} size={size} color={color} />
+  )
+}
+}
+
 
 //statusBar.currentHeight is only applying to android
 //because the statusBar has different height in different devices.
@@ -57,22 +74,7 @@ export default function App() {
      <ThemeProvider theme={theme}>
         <NavigationContainer>
             <Tab.Navigator
-            screenOptions={({ route }) => ({
-              tabBarIcon: ({  color, size }) => {
-                let iconName;
-    
-                if (route.name === 'Restaurants') {
-                  iconName = 'ios-restaurant' 
-                } else if (route.name === 'Settings') {
-                  iconName = 'ios-settings';
-                }else if(route.name==='Map'){
-                  iconName='ios-map';
-                }
-    
-                // You can return any component that you like here!
-                return <Ionicons name={iconName} size={size} color={color} />;
-              },
-            })}
+            screenOptions={createScreenOptions}
             tabBarOptions={{
               activeTintColor: 'tomato',
               inactiveTintColor: 'gray',
