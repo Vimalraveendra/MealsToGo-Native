@@ -19,6 +19,7 @@ import {
 
 
  import RestaurantsScreen from './src/features/restaurants/screens/restaurants.screens.js'
+ import {restaurantsRequest} from './src/services/restaurants/restaurants.service'
 
  function SettingsScreen() {
   return (

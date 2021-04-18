@@ -1,5 +1,5 @@
 import styled from 'styled-components'
-import {SafeAreaView,StatusBar} from 'react-native'
+import {SafeAreaView,StatusBar  } from 'react-native'
 
 
 //  margin-top: ${StatusBar.currentHeight}px; we get an error
