@@ -19,7 +19,7 @@ import {
 
 
  import RestaurantsScreen from './src/features/restaurants/screens/restaurants.screens.js'
-
+ import {RestaurantsContextProvider} from './src/services/restaurants/restaurants.context'
 
  function SettingsScreen() {
   return (
@@ -73,6 +73,7 @@ export default function App() {
   return (  
     <>
      <ThemeProvider theme={theme}>
+       <RestaurantsContextProvider>
         <NavigationContainer>
             <Tab.Navigator
             screenOptions={createScreenOptions}
@@ -86,6 +87,7 @@ export default function App() {
                   <Tab.Screen name="Settings" component={SettingsScreen}/>
             </Tab.Navigator>
         </NavigationContainer>
+        </RestaurantsContextProvider>
       </ThemeProvider>
       <ExpoStatusBar style="auto" />
     </>
