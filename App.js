@@ -20,6 +20,7 @@ import {
 
  import RestaurantsScreen from './src/features/restaurants/screens/restaurants.screens.js'
  import {RestaurantsContextProvider} from './src/services/restaurants/restaurants.context'
+ import {LocationContextProvider} from './src/services/restaurants/location/location.context.js'
 
  function SettingsScreen() {
   return (
@@ -73,6 +74,7 @@ export default function App() {
   return (  
     <>
      <ThemeProvider theme={theme}>
+      <LocationContextProvider>
        <RestaurantsContextProvider>
         <NavigationContainer>
             <Tab.Navigator
@@ -88,6 +90,7 @@ export default function App() {
             </Tab.Navigator>
         </NavigationContainer>
         </RestaurantsContextProvider>
+        </LocationContextProvider>
       </ThemeProvider>
       <ExpoStatusBar style="auto" />
     </>
