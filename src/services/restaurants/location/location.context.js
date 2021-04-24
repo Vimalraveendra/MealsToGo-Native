@@ -11,7 +11,7 @@ export const LocationContextProvider=({children})=>{
     const[error,setError] = useState(null) 
 
     const onSearch = (searchKeyword='Antwerp')=>{
-        console.log(searchKeyword)
+        console.log("hello")
         setIsLoading(true)
         setKeyword(searchKeyword)
         locationRequest(searchKeyword.toLowerCase())
