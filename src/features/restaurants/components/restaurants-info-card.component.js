@@ -10,6 +10,7 @@ import {RestaurantCard,RestaurantCardCover,Info,Section,Rating,SectionEnd,Icon,A
 
 
 const RestaurantsInfoCard=({restaurant={}})=>{
+ 
   
   const { name = "Some Restaurant",
   icon = "https://maps.gstatic.com/mapfiles/place_api/icons/v1/png_71/lodging-71.png",
@@ -23,12 +24,10 @@ const RestaurantsInfoCard=({restaurant={}})=>{
 // here we creating an array of undefined items
 // Math.round is used to round down the value of rating to integer
 const ratingArray = Array.from(new Array(Math.round(rating)));
-
-
 return(
   
   <RestaurantCard elevation={5}>
-    <RestaurantCardCover  key={name} source={{ uri:photos[0] }} />
+    <RestaurantCardCover  key={name} source={{uri:"https://foodiesfeed.com/wp-content/uploads/2021/01/torta-primavera.jpg"}}/>
      <Info>   
       <Text variant='label'>{name}</Text>
       <Section>
