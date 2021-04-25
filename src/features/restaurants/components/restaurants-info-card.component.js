@@ -27,7 +27,7 @@ const ratingArray = Array.from(new Array(Math.round(rating)));
 return(
   
   <RestaurantCard elevation={5}>
-    <RestaurantCardCover  key={name} source={{uri:"https://foodiesfeed.com/wp-content/uploads/2021/01/torta-primavera.jpg"}}/>
+    <RestaurantCardCover  key={name} source={{uri:photos[0]}}/>
      <Info>   
       <Text variant='label'>{name}</Text>
       <Section>
