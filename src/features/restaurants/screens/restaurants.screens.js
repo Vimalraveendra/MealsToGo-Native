@@ -1,18 +1,17 @@
 import React,{useContext} from 'react';
-import {Searchbar,ActivityIndicator,Colors} from "react-native-paper"
+import {ActivityIndicator,Colors} from "react-native-paper"
 import RestaurantsInfoCard from '../components/restaurants-info-card.component'
-import {SafeArea,SearchContainer,RestaurantList} from './restaurants.screens.styles'
+import {SafeArea,RestaurantList} from './restaurants.screens.styles'
 import {RestaurantsContext} from '../../../services/restaurants/restaurants.context'
 
+import Search from '../components/search.component'
 
  const RestaurantsScreen = ()=>{
    const restaurantsContext = useContext(RestaurantsContext)
    const{restaurants,isLoading,error} = restaurantsContext
    return(
     <SafeArea>
-        <SearchContainer >
-          <Searchbar placeholder="search"/>
-        </SearchContainer>
+        <Search />
         {
           isLoading ?<ActivityIndicator animating={true} color={Colors.amber100} size={75} style={{flex:1}}/>:
          <RestaurantList

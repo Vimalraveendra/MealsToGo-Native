@@ -20,7 +20,7 @@ const RestaurantsInfoCard=({restaurant={}})=>{
   address = "100 some random street",
   isOpenNow = true,
   rating = 4,
-  isClosedTemporarily=true,} = restaurant;
+  isClosedTemporarily=true,}=restaurant;
 // here we creating an array of undefined items
 // Math.round is used to round down the value of rating to integer
 const ratingArray = Array.from(new Array(Math.round(rating)));
