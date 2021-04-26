@@ -21,11 +21,9 @@ export const LocationContextProvider=({children})=>{
         .then(locationResponse=>{
             setIsLoading(false)
             setLocation(locationResponse)
-            console.log(locationResponse)
         }).catch(error=> {
             setIsLoading(false)
             setError(error)
-            console.log(error)
         })
     }
 

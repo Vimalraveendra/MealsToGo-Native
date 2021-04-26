@@ -8,7 +8,7 @@ import Search from '../components/search.component'
 
  const RestaurantsScreen = ()=>{
    const restaurantsContext = useContext(RestaurantsContext)
-   const{restaurants,isLoading,error} = restaurantsContext
+   const{restaurants,isLoading} = restaurantsContext
    return(
     <SafeArea>
         <Search />
