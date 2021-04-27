@@ -19,6 +19,7 @@ const RestaurantsInfoCard=({restaurant={}})=>{
   isOpenNow = true,
   rating = 4,
   isClosedTemporarily=true,
+  placeId
 }=restaurant;
 // here we creating an array of undefined items
 // Math.round is used to round down the value of rating to integer
@@ -32,8 +33,8 @@ return(
       <Section>
       <Rating>
           {
-            ratingArray.map((item,index)=>(
-              <SvgXml width={20} height={20} xml={star} key={index} />
+            ratingArray.map((_,index)=>(
+              <SvgXml key={`star-${placeId}-${index}`}  width={20} height={20} xml={star} />
               ))
           }  
        </Rating>
