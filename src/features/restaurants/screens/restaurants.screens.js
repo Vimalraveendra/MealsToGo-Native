@@ -6,7 +6,7 @@ import {RestaurantsContext} from '../../../services/restaurants/restaurants.cont
 
 import Search from '../components/search.component'
 
- const RestaurantsScreen = ()=>{
+ const RestaurantsScreen = ({navigation})=>{  
    const restaurantsContext = useContext(RestaurantsContext)
    const{restaurants,isLoading} = restaurantsContext
    return(
@@ -16,11 +16,11 @@ import Search from '../components/search.component'
           isLoading ?<ActivityIndicator animating={true} color={Colors.amber100} size={75} style={{flex:1}}/>:
          <RestaurantList
           data={restaurants}
-          renderItem={({item})=><RestaurantsInfoCard restaurant={item}/>}
+          renderItem={({item})=><RestaurantsInfoCard restaurant={item} navigation={navigation} /> }
           keyExtractor={(item,index)=>item.name .toString()} 
          /> 
         } 
-    </SafeArea> 
+    </SafeArea>   
 )
  }
 

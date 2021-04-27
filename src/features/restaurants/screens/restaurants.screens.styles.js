@@ -15,6 +15,7 @@ export const RestaurantList =styled(FlatList).attrs({
 
 
 
+
 //  margin-top: ${StatusBar.currentHeight}px; we get an error
 // on the ios simulator because its only an android feature.
 export const SafeArea =styled(SafeAreaView)`
