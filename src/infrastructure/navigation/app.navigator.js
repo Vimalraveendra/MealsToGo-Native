@@ -5,6 +5,7 @@ import { createBottomTabNavigator } from '@react-navigation/bottom-tabs';
 import Ionicons from '@expo/vector-icons/Ionicons'  
 
 import RestaurantsNavigator from './restaurants.navigator'
+import MapScreen from '../../features/restaurants/map/screens/map.screen'
 
 
 function SettingsScreen() {
@@ -15,14 +16,7 @@ function SettingsScreen() {
     );
   }
   
-  function MapScreen() {
-    return (
-      <View style={{ flex: 1, justifyContent: 'center', alignItems: 'center' }}>
-        <Text>Maps!</Text>
-      </View>
-    );
-  }
-
+ 
   const TAB_ICON = {
     Restaurants:'ios-restaurant',
     Map:'ios-map',
