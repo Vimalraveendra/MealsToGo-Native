@@ -25,7 +25,7 @@ const RestaurantsInfoCard=({restaurant={},navigation})=>{
 // Math.round is used to round down the value of rating to integer
 const ratingArray = Array.from(new Array(Math.round(rating)));
 return(
-  <TouchableOpacity onPress={()=>navigation.navigate('RestaurantsDetail')}>
+ 
   <RestaurantCard elevation={5}>
     <RestaurantCardCover  key={name} source={{uri:photos[0]}}/>
      <Info>   
@@ -56,7 +56,7 @@ return(
 
       </Info>
   </RestaurantCard>
-  </TouchableOpacity  >
+
 )
 }
 

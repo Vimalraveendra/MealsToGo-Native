@@ -1,15 +1,8 @@
 import React from 'react';
-import {Text} from 'react-native'
 import { createStackNavigator,TransitionPresets } from '@react-navigation/stack';
 
 import RestaurantsScreen from '../../features/restaurants/screens/restaurants.screens'
-
- function RestaurantsDetail(){
-    return(
-
-          <Text>RestaurantDetail</Text>
-    )
-}
+import RestaurantsDetailScreen from '../../features/restaurants/screens/restaurantsDetail.screen'
 
 const RestaurantStack = createStackNavigator();
 
@@ -19,7 +12,7 @@ const RestaurantsNavigator =()=>{
             ...TransitionPresets.ModalPresentationIOS
         }}>
           <RestaurantStack.Screen name="Restaurants" component={RestaurantsScreen} />
-          <RestaurantStack.Screen name="RestaurantsDetail" component={RestaurantsDetail} />
+          <RestaurantStack.Screen name="RestaurantsDetail" component={RestaurantsDetailScreen} />
           
         </RestaurantStack.Navigator>
     )

@@ -5,6 +5,7 @@ import {SafeArea,RestaurantList} from './restaurants.screens.styles'
 import {RestaurantsContext} from '../../../services/restaurants/restaurants.context'
 
 import Search from '../components/search.component'
+import { TouchableOpacity } from 'react-native';
 
  const RestaurantsScreen = ({navigation})=>{  
    const restaurantsContext = useContext(RestaurantsContext)
@@ -13,13 +14,21 @@ import Search from '../components/search.component'
     <SafeArea>
         <Search />
         {
-          isLoading ?<ActivityIndicator animating={true} color={Colors.amber100} size={75} style={{flex:1}}/>:
+          isLoading?<ActivityIndicator animating={true} color={Colors.amber100} size={75} style={{flex:1}}/>:
          <RestaurantList
           data={restaurants}
-          renderItem={({item})=><RestaurantsInfoCard restaurant={item} navigation={navigation} /> }
+          renderItem={({item})=>{
+            return(
+            <TouchableOpacity onPress={()=>navigation.navigate("RestaurantsDetail",{restaurant:item})}>
+            <RestaurantsInfoCard restaurant={item}  /> 
+            </TouchableOpacity>
+            )
+          }
+        }
           keyExtractor={(item,index)=>item.name .toString()} 
          /> 
-        } 
+      }
+        
     </SafeArea>   
 )
  }
