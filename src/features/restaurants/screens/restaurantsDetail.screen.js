@@ -56,7 +56,7 @@ const RestaurantsDetailScreen=({route})=>{
                         <List.Item title="Coke" />
                         <List.Item title="Fanta" />
                     </List.Accordion>
-                </ScrollView>
+                    </ScrollView>
           </SafeArea>
     )
 }
