@@ -16,7 +16,6 @@ color:white;
 const Favorite = ({restaurant})=>{
    
     const {favorites,addToFavorites,removeFromFavorites} = useContext(FavoriteContext)
-    console.log('res',favorites)
     const isFavorite = favorites.find(item=>item.placeId===restaurant.placeId)
     return(
     <FavoriteButton
