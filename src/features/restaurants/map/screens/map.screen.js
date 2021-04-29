@@ -14,7 +14,7 @@ height:100%;
 
 
 
-const MapScreen=()=> {
+const MapScreen=({navigation})=> {
     const {location} = useContext(LocationContext)
     const {restaurants} = useContext(RestaurantsContext)
     const [latDelta,setLatDelta] = useState(0);
@@ -46,7 +46,7 @@ const MapScreen=()=> {
                     longitude:restaurant.geometry.location.lng,
                 }}
                 >
-                <MapView.Callout>
+                <MapView.Callout onPress={()=>navigation.navigate("RestaurantsDetail",{restaurant:restaurant})}>
                   <MapCallout restaurant={restaurant}/>
                 </MapView.Callout>
                 </MapView.Marker>
