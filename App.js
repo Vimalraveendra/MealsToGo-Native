@@ -17,7 +17,9 @@ import {
 
  import {RestaurantsContextProvider} from './src/services/restaurants/restaurants.context'
  import {LocationContextProvider} from './src/services/restaurants/location/location.context.js'
+
  import Navigation from './src/infrastructure/navigation/naviagation.js'
+import { FavoriteContextProvider } from "./src/services/restaurants/favorite/favorite.context";
 
  
 
@@ -42,12 +44,14 @@ export default function App() {
   return (  
     <>
      <ThemeProvider theme={theme}>
-     <LocationContextProvider>
-       <RestaurantsContextProvider>
+      <FavoriteContextProvider>
+       <LocationContextProvider>
+        <RestaurantsContextProvider>
           <Navigation/>
         </RestaurantsContextProvider>
-        </LocationContextProvider>
-      </ThemeProvider>
+       </LocationContextProvider>
+      </FavoriteContextProvider>
+     </ThemeProvider>
       <ExpoStatusBar style="auto" />
     </>
   );

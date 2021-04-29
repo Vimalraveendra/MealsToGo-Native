@@ -5,8 +5,9 @@ import open from '../../../../assets/open'
 import {Text} from '../../../components/typography/text.component'
 
 import {RestaurantCard,RestaurantCardCover,Info,Section,Rating,SectionEnd,Icon,Address,ImageIcon} from './restaurants-info-card.styles'
-import { TouchableOpacity } from 'react-native-gesture-handler';
+
 // import {Spacer} from '../../../components/spacer/spacer.component'
+import Favorite from '../../../components/favorite/favorite.component'
 
 
 const RestaurantsInfoCard=({restaurant={},navigation})=>{
@@ -27,6 +28,7 @@ const ratingArray = Array.from(new Array(Math.round(rating)));
 return(
  
   <RestaurantCard elevation={5}>
+    <Favorite restaurant={restaurant}/>
     <RestaurantCardCover  key={name} source={{uri:photos[0]}}/>
      <Info>   
       <Text variant='label'>{name}</Text>
