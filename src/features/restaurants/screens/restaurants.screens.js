@@ -2,14 +2,19 @@ import React,{useContext} from 'react';
 import {ActivityIndicator,Colors} from "react-native-paper"
 import RestaurantsInfoCard from '../components/restaurants-info-card.component'
 import {SafeArea,RestaurantList} from './restaurants.screens.styles'
+
 import {RestaurantsContext} from '../../../services/restaurants/restaurants.context'
+import {FavoriteContext} from '../../../services/restaurants/favorite/favorite.context'
 
 import Search from '../components/search.component'
 import { TouchableOpacity } from 'react-native';
 
  const RestaurantsScreen = ({navigation})=>{  
    const restaurantsContext = useContext(RestaurantsContext)
-   const{restaurants,isLoading} = restaurantsContext
+   const favoriteContext = useContext(FavoriteContext)
+   const{restaurants,isLoading} = restaurantsContext;
+   const {favorites} = favoriteContext;
+   console.log("va",favorites)
    return(
     <SafeArea>
         <Search />
