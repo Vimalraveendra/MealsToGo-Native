@@ -1,4 +1,4 @@
-import {mocks,mockImages} from './mock/index'
+import {mocks,mockImages} from '../mock/index'
 import camelize from 'camelize'
 
 
