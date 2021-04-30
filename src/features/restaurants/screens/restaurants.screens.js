@@ -4,7 +4,7 @@ import RestaurantsInfoCard from '../components/restaurants-info-card.component'
 import {SafeArea,RestaurantList} from './restaurants.screens.styles'
 
 import {RestaurantsContext} from '../../../services/restaurants/restaurants.context'
-import {FavoriteContext} from '../../../services/restaurants/favorite/favorite.context'
+import {FavoriteContext} from '../../../services/favorite/favorite.context'
 
 import FavoriteBar from '../../../components/favorite/favorite-bar.component'
 
@@ -17,13 +17,14 @@ import { TouchableOpacity } from 'react-native';
    const[isToggled,setIsToggled] = useState(false)
 
    return(
+    isLoading?<ActivityIndicator animating={true} color={Colors.amber100} size={75} style={{flex:1}}/>:
     <SafeArea>
         <Search isFavoriteToggled={isToggled} onFavoriteToggle={()=>setIsToggled(!isToggled)}/>
         {isToggled  &&
            <FavoriteBar favorites={favorites} navigation={navigation}/>  
            }
         {
-          isLoading?<ActivityIndicator animating={true} color={Colors.amber100} size={75} style={{flex:1}}/>:
+       
          <RestaurantList
           data={restaurants}
           renderItem={({item})=>{
