@@ -25,9 +25,9 @@ align-items: center;
 
 const isAndroid = Platform.OS==='android'
 
-const CompactRestaurantInfo = ({restaurant})=>{
+const CompactRestaurantInfo = ({restaurant,isMap})=>{
     const {name,photos} = restaurant;
-    const Image = isAndroid?CompactWebview:CompactImage
+    const Image = (isAndroid && isMap)?CompactWebview:CompactImage
     return(
         <Item>
         <Image source={{uri:photos[0]}}/>  
