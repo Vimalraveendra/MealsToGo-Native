@@ -51,11 +51,11 @@ export default function App() {
     setTimeout(()=>{
       firebase
       .auth()
-      .signInWithEmailAndPassword('john@gmail.com','test123 ')
+      .signInWithEmailAndPassword("email","password")
      .then( (user)=> {
        setIsAuthenticated(true)
      }).catch((error)=>{
-       console.log(error)
+       console.log("Error",error)
      })
     },2000)
    },[]);

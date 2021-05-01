@@ -1,11 +1,35 @@
 import React from 'react';
 
-import {Image} from '../components/image-background.styles'
 
-const image = require("../../../../assets/home_bg.jpg");
+import {AccountBackgroundImage,AccountCover,AccountContainer,AuthButton,AccountTitle} from '../components/account.styles'
+import {Spacer} from '../../../components/spacer/spacer.component'
 
-export const AccountScreen =()=>{
-return<Image source={image}/>    
+
+
+export const AccountScreen =({navigation})=>{
+return(
+    <AccountBackgroundImage> 
+     <AccountCover/>
+     <AccountTitle>MealsToGo</AccountTitle>
+     <AccountContainer>
+       
+            <AuthButton 
+            icon="lock-open-outline"
+            mode="contained" 
+            onPress={() => navigation.navigate('Login')}>
+            Login
+            </AuthButton>
+        <Spacer size="large">
+            <AuthButton 
+              icon="email"
+                mode="contained" 
+                onPress={() => navigation.navigate("Register")}>
+                Register
+            </AuthButton>
+        </Spacer>    
+     </AccountContainer>
+    </AccountBackgroundImage> 
+)  
 }
 
 

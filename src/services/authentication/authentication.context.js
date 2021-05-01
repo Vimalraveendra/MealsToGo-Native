@@ -19,12 +19,13 @@ export const AuthenticationContextProvider=({children})=>{
      })
      .catch((error)=>{
          setIsLoading(false)
-         setError(error)
+         setError(error.toString())
+
      })
     }
     return(
         <AuthenticationContext.Provider value={{
-            user,
+            isAuthenticated:user,
             isLoading,
             error,
             onLogin,
