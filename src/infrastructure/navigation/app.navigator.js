@@ -1,11 +1,10 @@
 import React from 'react';
 import {View,Text} from 'react-native'
-import { NavigationContainer } from '@react-navigation/native';
 import { createBottomTabNavigator } from '@react-navigation/bottom-tabs';
 import Ionicons from '@expo/vector-icons/Ionicons'  
 
 import RestaurantsNavigator from './restaurants.navigator'
-import MapScreen from '../../features/restaurants/map/screens/map.screen'
+import MapScreen from '../../features/map/screens/map.screen'
 
 
 function SettingsScreen() {
@@ -38,7 +37,6 @@ function SettingsScreen() {
 
 const AppNavigator= ()=>{
 return (
-<NavigationContainer>
 <Tab.Navigator
 screenOptions={createScreenOptions}
 tabBarOptions={{
@@ -50,7 +48,7 @@ tabBarOptions={{
       <Tab.Screen name="Map" component={MapScreen}/>
       <Tab.Screen name="Settings" component={SettingsScreen}/>
 </Tab.Navigator>
-</NavigationContainer>
+
 
     )
 }
