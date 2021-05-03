@@ -8,6 +8,10 @@ import MapScreen from '../../features/map/screens/map.screen'
 
 import {AuthenticationContext} from '../../services/authentication/authentication.context'
 
+import {RestaurantsContextProvider} from '../../services/restaurants/restaurants.context'
+import {LocationContextProvider} from '../../services/location/location.context.js'
+import { FavoriteContextProvider } from "../../services/favorite/favorite.context";
+
 function SettingsScreen() {
    const{onLogout} = useContext(AuthenticationContext)
     return (
@@ -40,6 +44,9 @@ function SettingsScreen() {
 
 const AppNavigator= ()=>{
 return (
+<FavoriteContextProvider>
+<LocationContextProvider>
+<RestaurantsContextProvider>
 <Tab.Navigator
 screenOptions={createScreenOptions}
 tabBarOptions={{
@@ -51,7 +58,9 @@ tabBarOptions={{
       <Tab.Screen name="Map" component={MapScreen}/>
       <Tab.Screen name="Settings" component={SettingsScreen}/>
 </Tab.Navigator>
-
+</RestaurantsContextProvider>
+</LocationContextProvider>
+</FavoriteContextProvider>
 
     )
 }

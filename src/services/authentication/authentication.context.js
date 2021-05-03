@@ -13,7 +13,7 @@ export const AuthenticationContextProvider=({children})=>{
 
     // checking user authentication changed or not
     firebase.auth().onAuthStateChanged(userAuth=>{
-        if(userAuth){
+        if(userAuth){       
             setUser(userAuth)
             setIsLoading(false)
         }else{
@@ -56,8 +56,11 @@ export const AuthenticationContextProvider=({children})=>{
     }
 
      const onLogout= ()=>{
-         setUser(null)
          firebase.auth().signOut()
+         .then(()=>{
+             setUser(null)
+             setError(null)
+         })
      }
 
     return(
