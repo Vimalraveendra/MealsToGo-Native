@@ -1,5 +1,6 @@
+import firebase from 'firebase';
 import React,{useState,createContext} from 'react';
-import * as firebase from 'firebase'
+
 
 import {loginRequest,registerRequest} from './authentication.service'
 
@@ -9,6 +10,16 @@ export const AuthenticationContextProvider=({children})=>{
     const[isLoading,setIsLoading] = useState(false)
     const[user,setUser] = useState(null)
     const[error,setError] = useState(null)
+
+    // checking user authentication changed or not
+    firebase.auth().onAuthStateChanged(userAuth=>{
+        if(userAuth){
+            setUser(userAuth)
+            setIsLoading(false)
+        }else{
+            setIsLoading(false)
+        }
+    })
 
     const onLogin = (email,password)=>{
      setIsLoading(true)
@@ -30,8 +41,8 @@ export const AuthenticationContextProvider=({children})=>{
             setError("Error:Passwords do not match")
             return;
         }
-
-        firebase.auth().createUserWithEmailAndPassword(email,password)
+       setIsLoading(true)
+        registerRequest(email,password)
         .then((userObj)=>{
             setIsLoading(false)
             setUser(userObj)
@@ -41,10 +52,13 @@ export const AuthenticationContextProvider=({children})=>{
             setError(error.toString())
    
         }) 
-      
 
     }
 
+     const onLogout= ()=>{
+         setUser(null)
+         firebase.auth().signOut()
+     }
 
     return(
         <AuthenticationContext.Provider value={{
@@ -53,6 +67,7 @@ export const AuthenticationContextProvider=({children})=>{
             error,
             onLogin,
             onRegister,
+            onLogout
         }}>
          {children}
         </AuthenticationContext.Provider>

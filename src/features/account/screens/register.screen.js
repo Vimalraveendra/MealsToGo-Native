@@ -1,5 +1,5 @@
 import React,{useState,useContext} from "react";
-
+import {ActivityIndicator,Colors} from 'react-native-paper'
 
 import {AccountBackgroundImage,AccountCover,AccountContainer,AuthButton,AuthInput,AccountTitle,ErrorContainer} from '../components/account.styles'
 
@@ -8,12 +8,13 @@ import {Text} from '../../../components/typography/text.component'
 import {Spacer} from '../../../components/spacer/spacer.component'
 
 import {AuthenticationContext} from '../../../services/authentication/authentication.context'
+import { colors } from "../../../infrastructure/theme/colors";
 
 export const RegisterScreen = ({navigation})=>{
     const[email,setEmail] = useState("");
     const[password,setPassword] = useState("");
     const [repeatedPassword,setRepeatedPassword]= useState("")
-    const{onRegister,error} = useContext(AuthenticationContext)
+    const{onRegister,error,isLoading} = useContext(AuthenticationContext)
     return (
         <AccountBackgroundImage >
           <AccountCover/>
@@ -58,17 +59,22 @@ export const RegisterScreen = ({navigation})=>{
          }
          
           <Spacer size="large">
-          <AuthButton 
-          icon="email"
-          mode="contained" 
-          onPress={()=>{
-              onRegister(email,password,repeatedPassword)
-              setEmail("")
-              setPassword("")
-              setRepeatedPassword("")
-            }}>
-          Register  
-          </AuthButton>
+          {
+              !isLoading?
+              <AuthButton 
+              icon="email"
+              mode="contained" 
+              onPress={()=>{
+                  onRegister(email,password,repeatedPassword)
+                  setEmail("")
+                  setPassword("")
+                  setRepeatedPassword("")
+                }}>
+              Register  
+              </AuthButton>:
+              <ActivityIndicator animating={true} color={Colors.amber100}/>
+          }
+         
         </Spacer>
       </AccountContainer>
       <Spacer size="large">
