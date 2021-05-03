@@ -15,9 +15,6 @@ import {
 } from '@expo-google-fonts/lato';
 
 
- import {RestaurantsContextProvider} from './src/services/restaurants/restaurants.context.js'
- import {LocationContextProvider} from './src/services/location/location.context.js'
- import { FavoriteContextProvider } from "./src/services/favorite/favorite.context";
  import {AuthenticationContextProvider} from './src/services/authentication/authentication.context.js'
   
  import Navigation from './src/infrastructure/navigation/naviagation.js'
@@ -77,13 +74,7 @@ if(isAuthenticated)return null;
     <>
      <ThemeProvider theme={theme}>
      <AuthenticationContextProvider>
-      <FavoriteContextProvider>
-       <LocationContextProvider>
-        <RestaurantsContextProvider>
           <Navigation/>
-        </RestaurantsContextProvider>
-       </LocationContextProvider>
-      </FavoriteContextProvider>
       </AuthenticationContextProvider>
      </ThemeProvider>
       <ExpoStatusBar style="auto" />
