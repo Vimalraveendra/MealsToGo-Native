@@ -3,20 +3,22 @@ import { createStackNavigator,CardStyleInterpolators} from '@react-navigation/st
 
 import {SettingsScreen} from '../../features/settings/screens/settings.screen'
 import {FavoritesScreen} from '../../features/settings/screens/favorites.screen'
+import {CameraScreen} from '../../features/settings/screens/camera.screen'
 
 
 const SettingsStack = createStackNavigator();
 
- const SettingsNavigator=({route,navigation   })=>{
+ const SettingsNavigator=()=>{
     return(
         <SettingsStack.Navigator
-         headerMode="Screen"
+         headerMode="screen"
          screenOptions={ {
              CardStyleInterpolators:CardStyleInterpolators.forHorizontalIOS
          }}
         >
-         <SettingsStack.Screen  name="Settings" component={SettingsScreen} options={{header:()=>null}}/>
-         <SettingsStack.Screen name="Favorites" component={FavoritesScreen} options={{title:"Favorites"}}/>
+         <SettingsStack.Screen  name="Settings" options={{header:()=>null}} component={SettingsScreen} />
+         <SettingsStack.Screen name="Favorites" component={FavoritesScreen} />
+         <SettingsStack.Screen name="Camera" component={CameraScreen} />
         </SettingsStack.Navigator>
     )
 }
