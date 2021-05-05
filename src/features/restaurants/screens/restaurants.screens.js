@@ -1,5 +1,7 @@
 import React,{useContext,useState} from 'react';
 import {ActivityIndicator,Colors} from "react-native-paper"
+import { TouchableOpacity } from 'react-native';
+
 import RestaurantsInfoCard from '../components/restaurants-info-card.component'
 import {SafeArea,RestaurantList} from './restaurants.screens.styles'
 
@@ -9,7 +11,8 @@ import {FavoriteContext} from '../../../services/favorite/favorite.context'
 import FavoriteBar from '../../../components/favorite/favorite-bar.component'
 
 import Search from '../components/search.component'
-import { TouchableOpacity } from 'react-native';
+import {FadeView} from '../../../components/animations/fade.animation'
+
 
  const RestaurantsScreen = ({navigation})=>{  
    const{restaurants,isLoading}  = useContext(RestaurantsContext);
@@ -30,13 +33,16 @@ import { TouchableOpacity } from 'react-native';
           renderItem={({item})=>{
             return(
             <TouchableOpacity onPress={()=>navigation.navigate("RestaurantsDetail",{restaurant:item})}>
+            <FadeView>
             <RestaurantsInfoCard restaurant={item}  /> 
+            </FadeView>
             </TouchableOpacity>
             )
           }
         }
           keyExtractor={(item,index)=>item.name .toString()} 
          /> 
+
       }
         
     </SafeArea>   
