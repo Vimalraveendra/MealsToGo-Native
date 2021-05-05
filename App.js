@@ -42,20 +42,20 @@ import * as firebase from 'firebase';
 //statusBar.currentHeight is only applying to android
 //because the statusBar has different height in different devices.
 export default function App() {
-  const [isAuthenticated ,setIsAuthenticated] = useState(false)
+  // const [isAuthenticated ,setIsAuthenticated] = useState(false)
 
-  useEffect(()=>{
-    setTimeout(()=>{
-      firebase
-      .auth()
-      .signInWithEmailAndPassword("email","password")
-     .then( (user)=> {
-       setIsAuthenticated(true)
-     }).catch((error)=>{
-       console.log("Error",error)
-     })
-    },2000)
-   },[]);
+  // useEffect(()=>{
+  //   setTimeout(()=>{
+  //     firebase
+  //     .auth()
+  //     .signInWithEmailAndPassword("email","password")
+  //    .then( (user)=> {
+  //      setIsAuthenticated(true)
+  //    }).catch((error)=>{
+  //      console.log("Error",error)
+  //    })
+  //   },2000)
+  //  },[]);
 
   const [oswaldLoaded] = useOswald({
     Oswald_400Regular,
@@ -68,7 +68,7 @@ export default function App() {
     return null;
   }
 
-if(isAuthenticated)return null;
+// if(isAuthenticated)return null;
  
   return (  
     <>
