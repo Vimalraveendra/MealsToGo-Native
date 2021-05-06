@@ -10,7 +10,7 @@ useEffect(() => {
           {
             toValue: 1,
             duration: duration,
-            useNativeDriver:true,
+            useNativeDriver:true,   
           }
         ).start();
       }, [fadeAnim,duration])
