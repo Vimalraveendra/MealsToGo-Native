@@ -24,7 +24,6 @@ export const CameraScreen=({navigation}) =>{
   const {isAuthenticated:user} = useContext(AuthenticationContext)
 
   const cameraRef = useRef();
-  console.log("camera",cameraRef)
 
   useEffect(() => {
     const renderCamera =async () => {
@@ -44,7 +43,6 @@ export const CameraScreen=({navigation}) =>{
   const snap =async()=>{
       if(cameraRef){
         const photo = await cameraRef.current.takePictureAsync(); 
-        console.log("phoot",photo)
         AsyncStorage.setItem(`${user.uid}-photo`,photo.uri) 
         navigation.goBack();
       }
@@ -57,7 +55,6 @@ export const CameraScreen=({navigation}) =>{
       <TouchableOpacity onPress={snap} >
        <InnerSnap/>
       </TouchableOpacity>
-  
       </ProfileCamera>
    
    
