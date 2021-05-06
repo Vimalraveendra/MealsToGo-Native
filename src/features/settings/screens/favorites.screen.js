@@ -19,7 +19,7 @@ export const FavoritesScreen = ({navigation})=>{
    const {favorites} = useContext(FavoriteContext)
     return  favorites.length?
     (
-        <SafeArea>
+        <SafeArea>  
         <RestaurantList
         data={favorites}
         renderItem={({item})=>{
