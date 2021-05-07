@@ -6,13 +6,15 @@ import camelize from 'camelize'
 export const restaurantsRequest=(location)=>{
 // mimic the real api call because the mock[location] returns
 // almost immediately because it is local
-  return new Promise((resolve,reject)=>{
-      const mock =mocks[location]
-     if(!mock){
-      reject('no location')
-     }
-     resolve(mock)
-  })    
+  // return new Promise((resolve,reject)=>{
+  //     const mock =mocks[location]
+  //    if(!mock){
+  //     reject('no location')
+  //    } 
+  //    resolve(mock)
+  // })   
+  
+  //  
 }
 
 export const restaurantsTransform= ({results=[]})=>{
