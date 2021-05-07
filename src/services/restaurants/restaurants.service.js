@@ -15,16 +15,22 @@ export const restaurantsRequest=(location)=>{
   // })   
   
   //  
+  return fetch(`http://localhost:5001/mealstogo-b8f91/us-central1/placesNearBy?location=${location}`)
+.then((resp)=>{
+    return resp.json()
+}
+    )
+
 }
 
 export const restaurantsTransform= ({results=[]})=>{
   // return camelize(result)
   const mappedResults = results.map(restaurant=>{
-     restaurant.photos= restaurant.photos.map((p)=>{
-       // Math.ceil() rounded a number upward to its nearest integer
-      //  Math.ceil(5.4) =6
-       return mockImages[Math.ceil(Math.random()*(mockImages.length-1))]
-     });
+  //    restaurant.photos= restaurant.photos.map((p)=>{
+  //      // Math.ceil() rounded a number upward to its nearest integer
+  //     //  Math.ceil(5.4) =6
+  //      return mockImages[Math.ceil(Math.random()*(mockImages.length-1))]
+  //    });
     return{
       ...restaurant,
       address:restaurant.vicinity,
