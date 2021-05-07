@@ -16,3 +16,6 @@ web-build/
 .vscode/
 .vscode/react
 .vscode/react/settings.json
+
+## adding node modules of subfoler##
+*/node_modules/**/*
