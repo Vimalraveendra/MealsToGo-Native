@@ -19,7 +19,7 @@ export const RestaurantsContextProvider = ({children})=>{
 // we are going to act it like a real API & we are going to
 // wait for our response to come back.there is no latency on
 // retrieving our local objects.
-        setTimeout(()=>{
+        // setTimeout(()=>{
            restaurantsRequest(loc).then(restaurantsTransform).then(restaurantsResponse=>{
                setIsLoading(false)
                setRestaurants(restaurantsResponse)
@@ -27,7 +27,7 @@ export const RestaurantsContextProvider = ({children})=>{
                setIsLoading(false)
                setError(error)      
            })
-        },2000)
+        // },2000)
     }
      useEffect(() => {
         if(location){
